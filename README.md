@@ -1,13 +1,42 @@
 # linux-shell-evaluation
-I don't really understand of it. so I look into the _man bash_ document
-It is a part of _man bash_ document.
+I don't really understand of it. so I look into the _man bash_ document and draw a diagram.
+My summarize probably is not 100% right. 
+## Diagram
+So, let me summarize it in few diagram to understand it easily.
+```mermaid
+flowchart TD
+    A[Login shell] --> B
+    B["/etc/profile"] --> C
+    C["~/.bash_profile"] --> D
+    D["~/.bash_login"] --> E
+    E["~/.profile"] --> F
+    F["~/.bash_logout"] 
+```
+```mermaid
+flowchart TD
+    A[interactive shell] --> B
+    B["~/.bashrc"] 
+```
+```mermaid
+flowchart TD
+      A[bash is invoked with the name sh] --> B
+      B["/etc/profile"] --> C
+      C["~/.profile"] 
+```
+```mermaid
+flowchart TD
+      A[it is being run by the remote shell daemon] --> B
+      B["~/.bashrc"] 
+```
 
 ## man bash
+It is a part of _man bash_ document.
+### Manual
 Do not read either the system-wide startup file /etc/profile or any of the personal initialization files ~/.bash_profile, ~/.bash_login, or ~/.profile.  By default, bash reads these files when it is invoked as a login
 shell (see INVOCATION below).
 
 A login shell is one whose first character of argument zero is a -, or one started with the --login option.
-> for example, you can get a login shell, doing by one of following
+> for example, you can get a login shell, doing by one of following. It is my guess
 > ```agsl
 > > su -
 > > su userid - 
@@ -15,7 +44,7 @@ A login shell is one whose first character of argument zero is a -, or one start
 > ``` 
 An interactive shell is one started without non-option arguments and without the -c option whose standard input and error are both connected to terminals (as determined by isatty(3)), or one started with the -i option.  PS1 is
 set and $- includes i if bash is interactive, allowing a shell script or a startup file to test this state.
-> interactive shell
+> interactive shell, it is my guess
 > ```agsl
 > > bash -i
 > ``` 
@@ -44,35 +73,7 @@ interactive shell with the name sh, bash looks for the variable ENV, expands its
 read and execute commands from any other startup files, the --rcfile option has no effect.  A non-interactive shell invoked with the name sh does not attempt to read any other startup files.  When invoked as sh, bash enters
 posix mode after the startup files are read.
 
-## Diagram
-
-```mermaid
-flowchart TD
-    A[Login shell] --> B
-    B["/etc/profile"] --> C
-    C["~/.bash_profile"] --> D
-    D["~/.bash_login"] --> E
-    E["~/.profile"] --> F
-    F["~/.bash_logout"] 
-```
-```mermaid
-flowchart TD
-    A[interactive shell] --> B
-    B["~/.bashrc"] 
-```
-```mermaid
-flowchart TD
-      A[bash is invoked with the name sh] --> B
-      B["/etc/profile"] --> C
-      C["~/.profile"] 
-```
-```mermaid
-flowchart TD
-      A[it is being run by the remote shell daemon] --> B
-      B["~/.bashrc"] 
-```
-
-## Conclusion 
+## Conclusion
 Well, I read the document several times. I don't still get it all. In which shell belongs the following?
 > interactive shell
 > ```agsl
@@ -80,4 +81,3 @@ Well, I read the document several times. I don't still get it all. In which shel
 > >  bash -c "env"
 > ``` 
 > or running a shell script or in a crontab, I guess "bash is invoked with the name sh"
- 
