@@ -75,9 +75,11 @@ posix mode after the startup files are read.
 
 ## Conclusion
 Well, I read the document several times. I don't still get it all. In which shell belongs the following?
-> interactive shell
+> is it interactive shell?
 > ```agsl
 > > bash -c "echo hello"
-> >  bash -c "env"
+> > bash -c "env"
 > ``` 
-> or running a shell script or in a crontab, I guess "bash is invoked with the name sh"
+- is shell script follows "bash is invoked with the name sh"
+- is crontab follows "bash is invoked with the name sh"
+- Is a login shell a part of an interactive shell?
