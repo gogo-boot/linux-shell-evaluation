@@ -1,7 +1,7 @@
 # linux-shell-evaluation
 When i put some environment variable, i am not sure if i am putting the environment variable in correct place. 
-System wide/User wide/Group wide/Crontat, script wide. I like to make it clear
-So I look into the _man bash_ document and draw a diagram.
+System-wide/User wide/Group wide/crontab, script wide. I like to make it clear.
+So i look into the _man bash_ document and draw a diagram.
 My summarize probably is not 100% right. 
 ## Diagram
 So, let me summarize it in few diagram to understand it easily.
@@ -16,14 +16,14 @@ flowchart TD
 ```
 ```mermaid
 flowchart TD
-    A[interactive shell] --> B
-    B["~/.bashrc"] 
-```
-```mermaid
-flowchart TD
       A[bash is invoked with the name sh] --> B
       B["/etc/profile"] --> C
       C["~/.profile"] 
+```
+```mermaid
+flowchart TD
+    A[interactive shell] --> B
+    B["~/.bashrc"] 
 ```
 ```mermaid
 flowchart TD
