@@ -1,5 +1,7 @@
 # linux-shell-evaluation
-I don't really understand of it. so I look into the _man bash_ document and draw a diagram.
+When i put some environment variable, i am not sure if i am putting the environment variable in correct place. 
+System wide/User wide/Group wide/Crontat, script wide. I like to make it clear
+So I look into the _man bash_ document and draw a diagram.
 My summarize probably is not 100% right. 
 ## Diagram
 So, let me summarize it in few diagram to understand it easily.
@@ -73,7 +75,7 @@ interactive shell with the name sh, bash looks for the variable ENV, expands its
 read and execute commands from any other startup files, the --rcfile option has no effect.  A non-interactive shell invoked with the name sh does not attempt to read any other startup files.  When invoked as sh, bash enters
 posix mode after the startup files are read.
 
-## Conclusion
+## Conclusion and remain confusion 
 Well, I read the document several times. I don't still get it all. In which shell belongs the following?
 > is it interactive shell?
 > ```agsl
